@@ -1,0 +1,26 @@
+exports.get_admin_dashboard = async function (req, res, next) {
+  // redering sales report check
+  // const sales_report = await admin_helper.get_month_sales_report();
+  // const product_report = await admin_helper.get_product_report();
+  // const total_products = await admin_helper.get_total_products();
+  // const total_orders = await admin_helper.get_total_orders();
+
+  // let total_sales = 0;
+  // sales_report.forEach((doc) => {
+  //   total_sales += doc.total_sales_amount;
+  // });
+
+  res.render("admin/dashboard", {
+    admin_page:true,
+    admin_login:true,
+    header_message:"Dashboard"
+
+    // admin: true,
+    // admin_login_page: false,
+    // sales_report,
+    // total_sales,
+    // product_report,
+    // total_products,
+    // total_orders,
+  });
+};

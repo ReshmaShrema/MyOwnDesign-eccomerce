@@ -1,0 +1,114 @@
+<section  class="d-flex justify-content-center mb-5" >
+  <div class=" container row  d-flex justify-content-center ">
+    <div class="ml-5 col-md-6">
+      <h2 class="text-center my-5 ">Add Products</h2>
+      <form id="editProduct" class="d-flex aling-item-center flex-column" action="/admin/EditProduct/{{editingProduct._id}}" method="post"    enctype="multipart/form-data" >
+        <div class="form-outline ">
+          <input type="text" id="prodname" name="product_name" class="form-control mb-3" placeholder="Name" required value="{{editingProduct.product_name}}">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <div class="form-outline ">
+          <input id="price" type="number" name="price" class="form-control mb-3" placeholder="Price" required value="{{editingProduct.price}}">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <div class="form-outline ">
+          <textarea id="discription" type="text" name="discription" class="form-control mb-3" value="testefhadfi" placeholder="Discription" rows="3" >{{editingProduct.discription}}</textarea>
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>    
+        <div class="form-outline ">
+          <input id="stock" type="text" name="stock" class="form-control mb-3" placeholder="Stock" required  value="{{editingProduct.stock}}">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <div style="width: 80px; height:110px" class="mb-3">
+          <img style="width:100%; height:100%" src="/product-images/{{editingProduct._id}}.jpg" alt="product" id="imagePreview">
+        </div>
+        <input type="file" name="image" class="form-control mb-3" onchange="changeImagePreview(event)">
+        <div class="mb-3">
+          <select  class="btn-outline form-select text-center"  aria-label="Default select example" name="category" required>
+            <option>{{editingProduct.category}}</option>
+            {{#each category}}
+              <option>{{this.name}}</option>  
+            {{/each}}
+          </select>
+        </div>
+        <button  type="submit" class="btn mt-1 nav-btn bg-danger" required>Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const Imagepreview = document.getElementById("imagePreview")
+  const changeImagePreview= (event)=>{  
+    Imagepreview.src=URL.createObjectURL(event.target.files[0])
+  }
+  const editform = document.getElementById("editProduct")
+  const name = document.getElementById("prodname")
+  const authname = document.getElementById("authname")
+  const price = document.getElementById("price")
+  const stock = document.getElementById("stock")
+  const discription = document.getElementById("discription")
+  editform.addEventListener("submit", (e) => {
+    checkInput()
+    let isSuccess = editform.querySelectorAll(".form-outline.success")
+    let formoutline = editform.querySelectorAll(".form-outline")
+    if (isSuccess) {
+      if (formoutline.length == isSuccess.length) {
+      } 
+      else {
+        e.preventDefault();
+      }
+    }
+  })
+  function checkInput() {
+    const nameValue = name.value.trim()
+    const discriptionValue = discription
+    const priceValue = price.value.trim()
+    const stockValue = stock.value.trim()
+    if (nameValue === '') {
+      setErrorFor(name, 'Name connot be blank');
+    } 
+    else {
+      setSuccessFor(name)
+    }
+    if (discriptionValue === '') {
+      setErrorFor(discription, 'discription cannot be blank');
+    }
+    else{
+      setSuccessFor(discription);
+    }
+    if (priceValue === '') {
+      setErrorFor(price, 'price cannot be blank');
+    }
+    else{
+      setSuccessFor(price);
+    }
+    if (stockValue === '') {
+      setErrorFor(stock, 'stock cannot be blank');
+    }
+    else{
+      setSuccessFor(stock);
+    }
+  }
+  //setting error
+  function setErrorFor(input, message) {
+    const formoutline = input.parentElement;
+    const small = formoutline.querySelector('small');
+    small.innerText = message;
+    formoutline.className = 'form-outline error'
+  }
+  //setting succress
+  function setSuccessFor(input) {
+    const formoutline = input.parentElement;
+    formoutline.className = 'form-outline success'
+  }
+</script>

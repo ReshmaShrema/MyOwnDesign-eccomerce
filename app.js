@@ -1,0 +1,92 @@
+// const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const hbs = require("express-handlebars");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const logger = require("morgan");
+require("dotenv").config();
+
+const adminRouter = require("./routes/admin");
+const usersRouter = require("./routes/user");
+const db = require("./config/connection");
+
+const app = express();
+const fileUpload = require("express-fileupload");
+
+
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+app.engine(
+  "hbs",
+  hbs.engine({
+    extname: "hbs",
+    defaultLayout: "layout",
+    layoutDir: __dirname + "/views/layout/",
+    partialsDir: __dirname + "/views/partials",
+  })
+);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+// cookie parser middleware
+app.use(cookieParser());
+app.use(fileUpload());
+
+const oneHour = 1000 * 60 * 60;
+app.use(
+  session({
+    name: "session-id",
+    secret: "myowndesign", // Secret key,
+    saveUninitialized: true,
+    cookie: { maxAge: oneHour },
+    resave: false,
+  })
+);
+
+app.use(express.static(path.join(__dirname, "public")));
+
+
+
+db.connect((err) => {
+  if (err) console.log(err);
+  else console.log("Database connected");
+});
+
+// routs
+app.use("/", usersRouter);
+app.use("/admin", adminRouter);
+
+
+// catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
+
+// // error handler
+// app.use(function (err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get("env") === "development" ? err : {};
+//     // render the error page
+//   res.status(err.status || 500);
+//   // res.render('error');
+//   res.render("404");
+// });
+// port setting
+const port = process.env.PORT || 3000;
+app.listen(port, (error) => {
+  if (!error)
+    console.log(
+      `Server is Successfully Running, and app is listening on Port ${port}`
+    );
+  else console.log("Error occured,server can't start", error);
+});
+
+
+module.exports = app;

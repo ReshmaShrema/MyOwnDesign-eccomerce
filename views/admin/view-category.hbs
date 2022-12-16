@@ -1,0 +1,46 @@
+<section class="px-5 pt-5  ">
+  <a href="/admin/add-category" class="btn text-secondary mb-2">Add Category</a>
+    <div class="table-responsive mt-5">
+      <table class="table  table-borderless align-middle mx-auto" id="categoryTable">
+        <thead class="" >
+          <tr class="border border-1 border-seconday border-start-0 border-end-0">
+            <th  scope="col">#</th>
+            <th   scope="col">Title</th>
+            <th  scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each category}}
+          <tr>
+            <th></th>
+            <td  class="" >
+              {{this.name}}
+            </td>  
+            <td  class="" >
+              <a data-bs-toggle="modal" data-bs-target="#{{this.name}}Model" class="btn text-danger">Delete</a>
+              <div class="modal fade" id="{{this.name}}Model" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-danger" id="exampleModalLabel">Are you sure to Delete {{this.name}} ?</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <a href="/admin/delete-category/{{this._id}}" type="button" class="btn btn-danger">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+</section>
+<script>
+  $(document).ready( function () {
+    $('#categoryTable').DataTable();
+  });
+</script>
+

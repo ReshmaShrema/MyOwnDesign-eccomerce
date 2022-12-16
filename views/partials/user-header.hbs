@@ -1,0 +1,55 @@
+<div class="container-fluid bg-white">
+<div class="row justify-content-end bg-danger ">
+    <div class="col-12  mt-2">
+      <div class="login-btn ">
+        {{#if userLogin}}
+          <p class="text-white d-flex float-end"><a href="/user_logout" type="button" class=" text-decoration-none text-white fs-6 top-banner">Logout</a>
+        {{else}}
+        <p class="text-white d-flex float-end"><a href="/user_signin" type="button" class=" text-decoration-none text-white fs-6 top-banner">Signin</a> / <a href="/user_registration" type="button" class=" text-decoration-none text-white top-banner fs-6">Signup</a></p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+ </div>
+ <section class="container-fluid bg-white">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <a href="/"> <img src="/images/logo.png" class= "rounded "alt="images"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="/" title="home" class="custom-link nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/wishlist" class="custom-link nav-link">Wishlist{{#if userLogin}}[{{wishcount}}]{{/if}}</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/cart" class="custom-link nav-link">Cart{{#if userLogin}}[{{cartCount}}]{{/if}}</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/profile" class="custom-link nav-link">Profile </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+  </div>
+ </section>
+
+
+
+  
+ 
+
+
+
+
+ 
+    
+ 

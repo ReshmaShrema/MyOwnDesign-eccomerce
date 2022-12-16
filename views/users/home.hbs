@@ -1,0 +1,86 @@
+<div class="bg-white">
+  <section class="home_banner bg-white">    
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        {{#each carousels}}
+          <div class="carousel-item active">
+            <img    src="/carousel-images/{{this._id}}.jpg" class="d-block w-100" alt="...">
+          </div>
+        {{/each}}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div> 
+  </section> 
+
+      
+  <!-- category sections  -->
+  <section >
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-12 d-flex justify-content-center gap-3 pt-4 shadow home-bar">        
+          {{#each homeCategory}}
+            <a href="/products/?category={{this.category}}" class="text-danger bar-link"><p class="home-bar-p">{{this.category}}</p></a>
+          {{/each}}
+        </div>
+      </div>
+    </div>      
+  </section> 
+
+  <!-- explore All btn -->
+  <section class="view-all-product bg-white">
+    <a  href="/explore-all" class=" btn btn-success mt-4">Exlpore All</a>
+  </section>
+
+
+
+
+
+  <section class="trending pb-5">
+    <div class="container-fluid bg-white trending-wrapper">
+      <div class="row my-4 produdt-card-wrapper">
+        <div class="col-12 text-center"><h2>Flagship Products</h2></div>
+      </div>
+      <div class="row justify-content-center gap-5">
+        {{#each trendingProduct}}
+          {{#each this.product}}
+            <div class="col-12 col-sm-12 col-md-12 col-xl-2">
+              <div class="card mx-auto" style="width: 14rem; height:23rem" id="product-1">
+                <img class="img-fluid card-img-top" style="width: 100%; height:10rem" src="/product-images/{{this._id}}.jpg" alt="image">
+                <div class="card-body" style="width: 14rem; height:7rem">
+                  <h6 class="card-title" style="width: 12rem; height:4rem">{{this.product_name}}</h6>
+                  <p class="card-text">
+                    <div id="cover">
+                      {{#if this.offer}}  
+                        <h4 class="product-old-price ">{{this.price}}</h4>
+                        <h4 class="product-price ">{{this.finalPrice}}/-</h4>
+                        <h4 class="product-offer">({{this.discount}}% off)</h4>
+                      {{else}}
+                        <h4 class="product-price ">{{this.price}}/-</h4>
+                      {{/if}}
+                    </div>
+                  </p>
+                  <a href="/user_signin" onclick="addTocart('{{this._id}}')" ><i class="fas fa-shopping-cart me-2"></i></a>
+                  <a href="/user_signin"><i id="{{this._id}}" onclick="addToWishlist('{{this._id}}')"  class="fas fa-heart wishlist-icon me-2"></i></a>
+                  <a href="/product-details/{{this._id}}"><i class="fas fa-expand me-2"></i></a>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        {{/each}}
+      </div>
+    </div> 
+  </section>
+</div>
+
