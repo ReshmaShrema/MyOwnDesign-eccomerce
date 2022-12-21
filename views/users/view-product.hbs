@@ -86,35 +86,31 @@
 					{{#each products}}
 					{{!-- product --}}
 					<div class="single-product-card col-md-6 col-lg-4 col-xl-3">
-						<div id="product-1" class="single-product">
-							<div class="part-1">
-								<div style="width:300px;height:300px;" class="div">
-									<img class="img-fluid" src="/product-images/{{this._id}}.jpg" alt="image">
-								</div>
-								<ul>
-									{{!-- add to cart --}}
-									<li><a onclick="addTocart('{{this._id}}')"><i class="fas fa-shopping-cart"></i></a></li>
-									{{!-- wishlist btn --}}
-									<li><a ><i id="{{this._id}}" onclick="addToWishlist('{{this._id}}')"  class="fas fa-heart wishlist-icon "></i></a></li>
-									{{!-- wishllist btn --}}
-									<li><a href="/product-details/{{this._id}}"><i class="fas fa-expand"></i></a></li>
-								</ul>
-							</div>
-							<div class="part-2 text-center">
-								<p class="categoryName" hidden>{{this.category}}</p>
-								<h3 class="product-title">{{this.name}}</h3>
-								<p>-By {{this.authname}}</p>
-								<div id="cover">
-									{{#if this.offer}}
-										<h4 class="product-old-price ">{{this.price}}</h4>
-										<h4 class="product-price ">{{this.finalPrice}}</h4>
-										<h4 class="product-offer">({{this.discount}}% off)</h4>
-									{{else}}
-										<h4 class="product-price ">{{this.price}}</h4>
-									{{/if}}
-								</div>
-							</div>
-						</div>
+						
+              <div class="card mx-auto" style="width: 14rem; height:23rem" id="product-1">
+                <img class="img-fluid card-img-top" style="width: 100%; height:10rem" src="/product-images/{{this._id}}.jpg" alt="image">
+                <div class="card-body" style="width: 14rem; height:7rem">
+                  <h6 class="card-title" style="width: 12rem; height:4rem">{{this.product_name}}</h6>
+                  <p class="card-text">
+                    <div id="cover">
+                      {{#if this.offer}}  
+                        <h4 class="product-old-price ">{{this.price}}</h4>
+                        <h4 class="product-price ">{{this.finalPrice}}/-</h4>
+                        <h4 class="product-offer">({{this.discount}}% off)</h4>
+                      {{else}}
+                        <h4 class="product-price ">{{this.price}}/-</h4>
+                      {{/if}}
+                    </div>
+                  </p>
+                  <a  onclick="addTocart('{{this._id}}')"><i class="fas fa-shopping-cart me-2"></i></a>
+                  <a ><i id="{{this._id}}" onclick="addToWishlist('{{this._id}}')"  class="fas fa-heart wishlist-icon me-2"></i></a>
+                  <a href="/product-details/{{this._id}}"><i class="fas fa-expand me-2"></i></a>
+                </div>
+              </div>
+       
+						
+						
+						
 					</div>
 					{{/each}}
 				</div>
