@@ -5,7 +5,7 @@
 
 
 <div class="admin-home-edit-wrapper my-3">
-  <section class="home_banner admin-side-banner">
+  <section class="home_banner admin-side-banner" >
     <div
       id="carouselExampleIndicators"
       class="carousel slide"
@@ -68,11 +68,11 @@
   </section>
 </div>
 
-<div class="table-of-content mb-5">
+<div class="table-of-content">
 
-  <section class="px-5 pt-5">
+  <section class="px-5 pt-5" style="background-color:rgb(186, 180, 180)">
 
-    <a href="/admin/addcarousel" class="btn btn-primary mb-2">Add carousel</a>
+    <a href="/admin/addcarousel"  class="btn btn-danger mb-2">Add carousel</a>
 
     <div class="table-responsive mt-5">
       <table class="table table-borderless" id="usertable">
@@ -108,7 +108,7 @@
                 <a
                   data-bs-toggle="modal"
                   data-bs-target="#deleteModel{{this._id}}"
-                  class="btn btn-success"
+                  class="text-success text-decoration-none "style="cursor:pointer"
                 >Delete</a>
 
                 <div
@@ -160,8 +160,10 @@
 <br />
 <div class="category-wrapper">
 
-  <section class="category my-2 ">
-
+  <section class="category my-5 p-5 " style="background-color:rgb(186, 180, 180)">
+   <div class="heading">
+      <h1 class="my-4">Edit category</h1>
+    </div>
 <div class="wrapper" >
   <div class="row col-md-4" style="margin:auto ;" >
 
@@ -184,7 +186,7 @@
 
 
     <div style="margin:auto ;" class="add_btn col-md-2">
-      <button type="submit"   class="btn btn-primary mb-2" id="disabled" >Conform</a>
+      <button type="submit"   class="btn btn-danger mb-2" id="disabled" >Confirm</a>
     </div>
 
 </div>
@@ -204,13 +206,11 @@
 
 
 
-    <div class="heading">
-      <h2 class="my-4">Edit category</h2>
-    </div>
+ 
     <div class="align-center-wrapper my-3">
       <div class="card-wrapper">
 {{#each homeCategory}}
-        <div class="category-card card-3">
+        <div class="card-3 bg-secondary rounded text-white p-3">
           <p class="card-text">{{this.category}}</p>
         </div>
 {{/each}}
@@ -228,9 +228,12 @@
 {{!-- trending product section --}}
 
 <div class="trending">
-  <section class="trending">
+  <section class="trending p-5" style="background-color:rgb(186, 180, 180)">
 
-
+<div class="header">
+                       
+                        <h2 class="my-2">Trending</h2>
+                      </div>
 {{!-- select option --}}
 
     <form class="px-2" action="/admin/addTrendingProducts" method="post">
@@ -251,7 +254,7 @@
 
 
     <div style="margin:auto ;" class="add_btn col-md-2">
-      <button type="submit"   class="btn btn-primary mb-2" id="disabled" >Conform</a>
+      <button type="submit"   class="btn btn-primary mb-2" id="disabled" >Confirm</a>
     </div>
 
 </div>
@@ -269,7 +272,7 @@
                     <div class="col-md-8 col-lg-6">
                       <div class="header">
                        
-                        <h2 class="my-2">Trending</h2>
+                        <h2 class="my-2"></h2>
                       </div>
                     </div>
                   </div>
@@ -302,9 +305,9 @@
                           </ul> --}}
                         </div>
                         <div class="part-2 text-center">
-                          <h3 class="product-title ">{{this.name}}</h3>
+                          <h3 class="product-title ">{{this.product_name}}</h3>
                     
-                          <p>-By {{this.authname}}</p>
+  
                           <div id="cover">
                              <h4 class="product-old-price ">500.99</h4>
                           <h4 class="product-price ">{{this.price}}</h4>

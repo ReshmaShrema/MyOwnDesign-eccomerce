@@ -150,11 +150,11 @@
 
 
 <div class="row">
-  <div class="col-md-6">
+  {{!-- <div class="col-md-6">
     <input class="form-check-input" type="radio" name="paymentMethod" id="flexRadioDefault2" value="razorpay" >
   <label class="form-check-label" for="flexRadioDefault2">
    Razorpay
-  </label>
+  </label> --}}
 </div>
   <div class="col-md-6">
     <input class="form-check-input" type="radio" name="paymentMethod" id="flexRadioDefault2" value="paypal" >
@@ -186,7 +186,7 @@
                         </ul>
                       <input  type="text" id="coupenId"  hidden>
                         <div class="button d-grid ">
-                          <button  style="background-color: #eb227ddb;  color: #ffff;" type="submit"  class="btn ">Checkout</button>
+                          <button   type="submit"  class="btn btn-danger text-white" >Checkout</button>
                         </div>
                      
                       </div>
@@ -290,7 +290,7 @@ var options = {
     "key": "rzp_test_iuxZcw2GsP7kC4", // Enter the Key ID generated from the Dashboard
     "amount":order.amount , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
-    "name": "BookStore",
+    "name": "myOwnDesign",
     "description": "Test Transaction",
     "image": "/images/logo.png",
     "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
@@ -298,7 +298,7 @@ var options = {
         RazoverifyPayment(response,order)
     },
     "prefill": {
-        "name": "BookStore",
+        "name": "myowndesign",
         "email": "bookstorer@example.com",
         "contact": "+91 7306162979"
     },

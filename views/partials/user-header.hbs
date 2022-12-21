@@ -16,7 +16,7 @@
       <div class="col-12">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
-            <a href="/"> <img src="/images/logo.png" class= "rounded "alt="images"></a>
+            <a href="/"> <img src="/images/logo.png"style="width:100px;height:100px;" class= "rounded "alt="images"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,10 +26,10 @@
                   <a href="/" title="home" class="custom-link nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/wishlist" class="custom-link nav-link">Wishlist{{#if userLogin}}[{{wishcount}}]{{/if}}</a>
+                  <a href="/wishlist" class="custom-link nav-link">Wishlist{{#if userLogin}}[<span id="wish-count">{{wishcount}}</span>]{{/if}}</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/cart" class="custom-link nav-link">Cart{{#if userLogin}}[{{cartCount}}]{{/if}}</a>
+                  <a href="/cart" class="custom-link nav-link">Cart{{#if userLogin}}[<span id="cart-count">{{cartCount}}</span>]{{/if}}</a>
                 </li>
                 <li class="nav-item">
                   <a href="/profile" class="custom-link nav-link">Profile </a>

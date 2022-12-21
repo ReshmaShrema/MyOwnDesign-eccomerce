@@ -2,12 +2,14 @@
   <div class=" container row  d-flex justify-content-center ">
     <div class="ml-5 col-md-6">
       <h2 class="text-center my-5 ">Add Category</h2>
-      <form class="d-flex aling-item-center flex-column" action="/admin/add-category" method="post" >
+      <form class="d-flex aling-item-center flex-column" action="/admin/add-category" method="post"  onclick="validation()">
         
-        <input id="categoryInput" type="text" name="name" class="form-control mb-3" placeholder="Category Name" required>
+        <input id="categoryInput" type="text" name="name"  style="text-transform: capitalize"  class="form-control mb-3" placeholder="Category Name" required>
+        <p id="usernameErrorId" class="text-danger"> 
+        </p>
 
 
-        <button  style="background-color:#EF3772; color:#fff;" type="submit" class="btn mt-1" required>Submit</button>
+        <button   type="submit" class="btn btn-danger mt-1" required>Submit</button>
 
       </form>
     </div>
@@ -16,9 +18,28 @@
 
 <script>
     // to prevent  entering numbers in category input
-const input = document.querySelector('#categoryInput');
-input.addEventListener('keydown', function(event){
-  if((/\d/g).test(event.key)) event.preventDefault();
-})
+{{!-- const input = document.querySelector('#categoryInput');
+{{!-- input.addEventListener('keydown', function(event){ --}}
+  {{!-- if((/\d/g).test(event.key)) event.preventDefault(); --}}
+}) --}}
+
+ function validation(){
+                let username = document.getElementById('categoryInput').value;
+                
+                if(username == ""){
+                    document.getElementById('usernameErrorId').innerHTML =" ** Please fill the Category field";
+                    return false;
+                }
+                if((username.length <= 4) || (username.length >= 20)) {
+                    document.getElementById('usernameErrorId').innerHTML =" ** Username lenght must be between 4 and 20";
+                    return false;	
+                }
+                if(!isNaN(username)){
+                    document.getElementById('usernameErrorId').innerHTML =" ** only characters are allowed";
+                    return false;
+                }
+            }
+        
+
 
 </script>

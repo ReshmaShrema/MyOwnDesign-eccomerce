@@ -198,8 +198,7 @@ router.get("/add-product", verifyAdminLogin, (req, res) => {
 });
 
 router.post("/add-product", (req, res) => {
-  if (req.file) {
-  }
+ 
   productHelper.addProduct(req.body).then((response) => {
     let id = response.toString();
 

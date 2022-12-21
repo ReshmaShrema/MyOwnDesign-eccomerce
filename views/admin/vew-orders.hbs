@@ -1,7 +1,7 @@
 
 
 
-<section class="px-5 pt-5 ">
+<section class="px-5 pt-5  ">
 
 <div class="table-responsive mt-5">
   <table class="table table-borderless " id="usertable">
@@ -30,7 +30,7 @@
     
           <td>
           <div class="btn-group">
-  <a  class="btn btn-primary dropdown-toggle mb-2" data-bs-toggle="dropdown" aria-expanded="false">
+  <a  class="btn-link text-primary text-decoration-none mb-2 me-2 dropdown-toggle mb-2" style="cursor:pointer" data-bs-toggle="dropdown" aria-expanded="false">
    Change Status
   </a>
   <ul class="dropdown-menu " style="z-index: 1;"> 
@@ -47,10 +47,10 @@
   </ul>
 </div>
 
-            <a  href="/admin/view-order-details/{{this._id}}" class="btn btn-success mb-1">View Detaills</a>
+            <a  href="/admin/view-order-details/{{this._id}}" class="btn-link text-success text-decoration-none mb-2 me-2 ">View Details</a>
 
                 {{!-- <a  href="/admin/view-order-details/{{this._id}}" class="btn btn-danger mb-1">Cancel Order</a> --}}
-                  <a data-bs-toggle="modal" data-bs-target="#ModeladminCancel{{this._id}}" class="btn btn-danger ">Cancel Order</a>
+                  <a data-bs-toggle="modal" style="cursor:pointer" data-bs-target="#ModeladminCancel{{this._id}}" class="btn-link text-danger text-decoration-none mb-2 me-2">Cancel Order</a>
 
 
 
@@ -65,7 +65,7 @@
   
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <a href="/admin/cancelOrder/{{this._id}}" type="button" class="btn btn-danger">Conform</a>
+        <a href="/admin/cancelOrder/{{this._id}}" type="button" class="btn btn-danger">Confirm</a>
       </div>
     </div>
   </div>

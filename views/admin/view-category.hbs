@@ -1,5 +1,5 @@
 <section class="px-5 pt-5  ">
-  <a href="/admin/add-category" class="btn text-secondary mb-2">Add Category</a>
+  <a href="/admin/add-category" class="btn btn-danger mb-2">Add Category</a>
     <div class="table-responsive mt-5">
       <table class="table  table-borderless align-middle mx-auto" id="categoryTable">
         <thead class="" >
@@ -15,8 +15,24 @@
             <th></th>
             <td  class="" >
               {{this.name}}
-            </td>  
-            <td  class="" >
+            </td> 
+            <td>
+              <a data-bs-toggle="modal" data-bs-target="#ModelDelete{{this._id}}#ModelDelete{{this._id}}" class=" btn-link text-decoration-none text-danger mb-2" style="cursor:pointer">Delete</a>
+              <div class="modal fade" id="ModelDelete{{this._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-danger" id="exampleModalLabel">Are you sure to Delete {{this.name}} ?</h5>
+                    </div>
+                    <div class="modal-footer ">
+                      <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Cancel</button>
+                      <a href="/admin/delete-category/{{this._id}}" type="button" class="btn btn-danger ">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td> 
+            {{!-- <td  class="" >
               <a data-bs-toggle="modal" data-bs-target="#{{this.name}}Model" class="btn text-danger">Delete</a>
               <div class="modal fade" id="{{this.name}}Model" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -30,8 +46,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
+              </div>+
+            </td> --}}
           </tr>
           {{/each}}
         </tbody>
@@ -42,5 +58,6 @@
   $(document).ready( function () {
     $('#categoryTable').DataTable();
   });
+
 </script>
 

@@ -12,9 +12,9 @@ var content;
 paypal.configure({
   mode: "sandbox", //sandbox or live
   client_id:
-    "AUMW-aazthVYZUjcjvCRbCZMO1pR0D13gMD_WwL7AgdEIKoTILry3B9rQGzOtZrhqlQZPcYnLD-Vuixu",
+    "AWwNB-K0mT1INIjy3lxm_N0CtCSDXxBXMMvRF39psyn0uA6vzVNrbssyvG4rg905tdQ1_Lt1lo-ixtBK",
   client_secret:
-    "EPOay6fgqj301VsRw7Gw27GWFPcUpj5ugz-eBSY9MHPvwiyJLk4nvYStQK60m3LjUzaWlsc1O4b57FdH",
+    "EOFuB4j83_vI2sd-w9HTMVwyP-dyh9v2psEIw6A7TnjjEn0Pk4bysvlQA7HoAT6AKQMy5pb1N3ECJbZj",
 });
 
 const verifyuserlogin = (req, res, next) => {
@@ -661,6 +661,9 @@ router.get("/profile", verifyuserlogin, async (req, res) => {
     });
   });
 });
+
+
+
 router.get("/edit-profile", verifyuserlogin, (req, res) => {
   userHelper.getalluserData(req.session.user._id).then((userdata) => {
     console.log(userdata);

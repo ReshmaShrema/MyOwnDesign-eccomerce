@@ -14,7 +14,7 @@
     {{!-- offers --}}
 
 <div class="btn-group">
-  <a  class="btn btn-primary dropdown-toggle mb-2" data-bs-toggle="dropdown" aria-expanded="false">
+  <a  class="btn btn-danger dropdown-toggle mb-2" data-bs-toggle="dropdown" aria-expanded="false">
   Add Offer
   </a>
   <ul class="dropdown-menu">
@@ -58,7 +58,7 @@
         <td  class="fit" >
         {{#each this.products}}
 
-          {{this.name}}({{this.category}})<br> 
+          {{this.product_name}}({{this.category}})<br> 
 
         {{/each}}
         </td>
@@ -67,7 +67,7 @@
 
     
 
-                    <a data-bs-toggle="modal" data-bs-target="#delete{{this._id}}" class="btn btn-danger ">Delete</a>
+                    <a data-bs-toggle="modal" data-bs-target="#delete{{this._id}}" class="btn-link text-danger text-decoration-none mb-2 ">Delete</a>
 
 
 

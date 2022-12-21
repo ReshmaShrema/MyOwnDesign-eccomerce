@@ -4,7 +4,7 @@
       <h2 class="text-center my-5 ">Add Products</h2>
       <form id="productAdd" class="d-flex aling-item-center flex-column" action="/admin/add-product" method="post"   enctype="multipart/form-data">
         <div class="form-outline ">   
-          <input  id="prodname" type="text" name="product_name" class="form-control mb-3" placeholder="Name" >
+          <input  id="prodname" type="text" name="product_name" style="text-transform: capitalize" class="form-control mb-3" placeholder="Name" >
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error message</small>
@@ -16,13 +16,13 @@
           <small>Error message</small>
       </div>  
       <div class="form-outline ">
-        <textarea type="text" id="discription" name="discription" class="form-control mb-3" placeholder="discription" rows="3"></textarea>
+        <textarea type="text" id="discription" name="discription" style="text-transform: capitalize" class="form-control mb-3" placeholder="discription" rows="3"></textarea>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
       </div>
       <div class="form-outline ">
-        <input type="text" id="stock" name="stock" class="form-control mb-3" placeholder="Stock" > 
+        <input type="number" id="stock" name="stock" class="form-control mb-3" placeholder="Stock" > 
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
@@ -69,7 +69,7 @@
             {{/each}}
           </select>
         </div>
-        <button type="submit" class="btn mt-1 nav-btn" >Submit</button> 
+        <button type="submit" class="btn mt-1 nav-btn btn-danger" >Submit</button> 
       </form>
     </div>
   </div>
@@ -189,7 +189,6 @@
   })
   function checkInput() {
     const nameValue = name.value.trim()
-    const authnameValue = authname.value.trim()
     const discriptionValue = discription.value
     const priceValue = price.value.trim()
     const stockValue = stock.value.trim()
@@ -199,12 +198,8 @@
     else {
       setSuccessFor(name)
     }
-    if (authnameValue === '') {
-      setErrorFor(authname, 'author name cannot be blank');
-    }
-    else {
-      setSuccessFor(authname);
-    }
+    
+    
     if (discriptionValue === '') {
       setErrorFor(discription, 'discription cannot be blank');
     }

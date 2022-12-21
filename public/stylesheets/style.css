@@ -108,12 +108,12 @@ nav .nav-rightside{
 
 /* Admin panel */
 #admin-header .admin-panel-text{
-    color: rgba(239, 55, 114, 0.73);
+    color: rgba(240, 18, 11, 0.73);
     margin-bottom: 0;
 }
 #admin-header .menu ul{
     display: flex;
-    gap: 2rem;
+    /* gap: 1rem; */
     margin-bottom: 0;
     padding-left: 0;
     list-style-type: none;
@@ -131,10 +131,10 @@ nav .nav-rightside{
     font-weight: 400;
 }
 #admin-header .menu ul li a.active{
-    color: rgba(239, 55, 114, 0.73);
+    color: rgba(220, 14, 14, 0.73);
 }
 #filter_menu .active{
-    color: rgba(239, 55, 114, 0.73);
+    color: rgba(231, 40, 11, 0.73);
 }
 
 button.log-reg-btn{
@@ -573,7 +573,7 @@ gap: 3rem;
 .icon-wrap{
     width: 45px;
     height: 45px;
-    background-color: #F36D98;
+    background-color: #d0210e;
     border-radius: 50%;
 	display: flex;
 	align-items: center;

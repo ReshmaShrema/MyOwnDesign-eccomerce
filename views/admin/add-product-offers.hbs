@@ -3,7 +3,7 @@
 
 
 
-<section  class="d-flex justify-content-center " >
+<section  class="d-flex justify-content-center" >
   <div class=" container row  d-flex justify-content-center ">
     <div class="ml-5 col-md-6">
       <h2 class="text-center my-5 ">Add Product Offer</h2>
@@ -18,15 +18,13 @@
 <div class="wrap mb-3">
     	<select id="multi_option" multiple name="options" placeholder="Select products" >
     {{#each AllProductList}}
-	  <option  value="{{this._id}}">{{this.name}}</option>
+	  <option  value="{{this._id}}">{{this.product_name}}</option>
     {{/each}}
 
 	</select>
 </div>
 
-<input type="text" name="offerType" value="product" hidden>
-
-        <button  style="background-color:#EF3772; color:#fff;" type="submit" class="btn mt-1" required>Submit</button>
+        <button type="submit" class="btn btn-danger" required >Submit</button>
 
       </form>
     </div>
@@ -66,4 +64,5 @@
 	padding: 10px 30px 10px 10px;
 	border-radius: 5px;
 }
+
 </style>
